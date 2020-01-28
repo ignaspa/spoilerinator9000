@@ -1,8 +1,15 @@
-<%= form_tag do %>
+<%= form_tag '/spoiler_mailer' method: 'post' do %>
 <div style="text-align:center;">
-    <h1>Send Email</h1>
+    <h1> Send Spoiler </h1>
     <br>
+    <p>Email Address:</p>
     <%= text_field_tag :email %>
+    <br><br>
+    <p>Email Title:</p>
+    <%= text_field_tag :mailtitle %>
+    <br><br>
+    <p>Content:</p>
+    <%= text_field_tag :spoilercontent %>
     <br><br>
     <%= submit_tag value = "Ruin someone's day!" %>
     </div>

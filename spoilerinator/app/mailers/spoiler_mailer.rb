@@ -1,9 +1,8 @@
 class SpoilerMailer < ApplicationMailer
     default from: 'ignaspan@gmail.com'
- 
-  def spoiler_email(:email, :mailtitle, :spoilercontent)
-    @user = params[:user]
-    @url  = 'http://example.com/login'
-    mail(to: @user.email, subject: 'Welcome to My Awesome Site')
+  def new_spoiler_email
+    @spoiler = params[:spoiler]
+
+    mail(to: @spoiler.email, subject: @spoiler.emailtitle)
   end
 end

@@ -1,13 +1,8 @@
 class SpoilersController < ApplicationController
     def create
-        @spoiler = Spoiler.new(:email=> params[:email], :mailtitle => params[:title], :spoilercontent => params[:content])
+        @spoiler = Spoiler.new(:email => params[:email], :mailtitle => params[:mailtitle], :spoilercontent => params[:spoilercontent])
      
-        respond_to do |format|
-          if @user.save
-            # Tell the UserMailer to send a welcome email after save
-            SpoilerMailer.with(emailcontent: @user).welcome_email.deliver_later
-    
-          end
-        end
+        SpoilerMailer.with(spoiler: @spoiler).new_spoiler_email.deliver_later
+
     end
 end

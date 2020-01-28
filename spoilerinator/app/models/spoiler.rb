@@ -1,5 +1,5 @@
 class Spoiler < ActiveRecord::Base
-    validates_presence_of :email
-    validates_presence_of :mailtitle
-    validates_presence_of :spoilercontent
+    include ActiveModel::Model
+    attr_accessor :email, :mailtitle, :spoilercontent
+    validates :email, :mailtitle, :spoilercontent, presence: true
 end
